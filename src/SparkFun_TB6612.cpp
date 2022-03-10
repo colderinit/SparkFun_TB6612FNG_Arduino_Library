@@ -75,43 +75,43 @@ void Motor::standby()
    digitalWrite(Standby, LOW);
 }
 
-void forward(Motor motor1, Motor motor2, int speed)
+void forward(Motor motor1, Motor motor2, int speed, int duration)
 {
-	motor1.drive(speed);
-	motor2.drive(speed);
+	motor1.drive(speed, duration);
+	motor2.drive(speed, duration);
 }
-void forward(Motor motor1, Motor motor2)
+void forward(Motor motor1, Motor motor2, int duration)
 {
-	motor1.drive(DEFAULTSPEED);
-	motor2.drive(DEFAULTSPEED);
+	motor1.drive(DEFAULTSPEED, duration);
+	motor2.drive(DEFAULTSPEED, duration);
 }
 
 
-void back(Motor motor1, Motor motor2, int speed)
+void back(Motor motor1, Motor motor2, int speed, int duration)
 {
 	int temp = abs(speed);
-	motor1.drive(-temp);
-	motor2.drive(-temp);
+	motor1.drive(-temp, duration);
+	motor2.drive(-temp, duration);
 }
-void back(Motor motor1, Motor motor2)
+void back(Motor motor1, Motor motor2, int duration)
 {
-	motor1.drive(-DEFAULTSPEED);
-	motor2.drive(-DEFAULTSPEED);
+	motor1.drive(-DEFAULTSPEED, duration);
+	motor2.drive(-DEFAULTSPEED, duration);
 }
-void left(Motor left, Motor right, int speed)
+void left(Motor left, Motor right, int speed, int duration)
 {
 	int temp = abs(speed)/2;
-	left.drive(-temp);
-	right.drive(temp);
+	left.drive(-temp, duration);
+	right.drive(temp, duration);
 	
 }
 
 
-void right(Motor left, Motor right, int speed)
+void right(Motor left, Motor right, int speed, int duration)
 {
 	int temp = abs(speed)/2;
-	left.drive(temp);
-	right.drive(-temp);
+	left.drive(temp, duration);
+	right.drive(-temp, duration);
 	
 }
 void brake(Motor motor1, Motor motor2)
